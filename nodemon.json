@@ -1,0 +1,8 @@
+{
+    "env": {
+        "MONGO_USER": "saba",
+        "MONGO_PASSWORD": "456456",
+        "MONGO_DEFAULT_DATABASE": "email-project",
+        "SENDGRID_API_KEY":""
+    }
+}
