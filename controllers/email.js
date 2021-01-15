@@ -1,5 +1,5 @@
 const EmailBlackList = require('../models/EmailBlackList')
-const emailFactory = require ('./emailServise')
+const EmailService = require ('./emailServise')
 
 function validateEmail(email) {
     const re = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -34,6 +34,8 @@ exports.sendEmail = (req,res,next) =>{
     const subject = req.body.subject
     const body_text = req.body.body_text
     const body_html = req.body.body_html
+
+    function emailFactory(serviceType){ return new EmailService (serviceType)}
 
     if (!validateEmail(emailFrom) || !validateEmail(emailTo)) {
         const error = new Error('Validation failed, entered address is not an email.');

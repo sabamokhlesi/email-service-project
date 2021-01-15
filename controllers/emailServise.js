@@ -49,8 +49,8 @@ class EmailService{
     }
 }
 
-function emailFactory(serviceType){ return new EmailService (serviceType)}
 
-module.exports = emailFactory
+
+module.exports = EmailService
 
 
